@@ -1,57 +1,57 @@
-# Sample Hardhat 3 Beta Project (`mocha` and `ethers`)
+# 🏦 SingleVault (ERC-4626)
 
-This project showcases a Hardhat 3 Beta project using `mocha` for tests and the `ethers` library for Ethereum interactions.
+![Solidity](https://img.shields.io/badge/Solidity-%5E0.8.28-363636?style=flat-square&logo=solidity)
+![Hardhat](https://img.shields.io/badge/Built%20With-Hardhat-yellow?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
+![Network](https://img.shields.io/badge/Network-Sepolia-gF47?style=flat-square)
 
-To learn more about the Hardhat 3 Beta, please visit the [Getting Started guide](https://hardhat.org/docs/getting-started#getting-started-with-hardhat-3). To share your feedback, join our [Hardhat 3 Beta](https://hardhat.org/hardhat3-beta-telegram-group) Telegram group or [open an issue](https://github.com/NomicFoundation/hardhat/issues/new) in our GitHub issue tracker.
+A robust, gas-optimized, and secure implementation of the **ERC-4626 Tokenized Vault Standard**. This vault allows users to deposit ERC-20 tokens (Assets) and receive vault shares (Shares) in return, representing their fractional ownership of the pool.
 
-## Project Overview
+## 🚀 Features
 
-This example project includes:
+### Core Functionality (ERC-4626)
+- **Deposit:** User deposits Assets ➡️ Receives Shares.
+- **Mint:** User requests specific Shares ➡️ Pays Assets.
+- **Withdraw:** User burns Shares ➡️ Receives specific Assets.
+- **Redeem:** User burns specific Shares ➡️ Receives Assets.
 
-- A simple Hardhat configuration file.
-- Foundry-compatible Solidity unit tests.
-- TypeScript integration tests using `mocha` and ethers.js
-- Examples demonstrating how to connect to different types of networks, including locally simulating OP mainnet.
+### 🛡️ Security & Rounding Protection
+Implemented strict rounding logic to prevent dust attacks and inflation attacks (vault insolvency):
+- **Favors the Vault:**
+  - `Deposit` & `Redeem`: Uses `Math.Rounding.Floor` (User gets slightly less/exact).
+  - `Mint` & `Withdraw`: Uses `Math.Rounding.Ceil` (User pays/burns slightly more).
+- **Reentrancy Protection:** All state-changing functions are guarded with `nonReentrant`.
+- **Access Control:** `Pausable` functionality restricted to the Contract Owner.
 
-## Usage
+### ⚡ Optimization
+- **Immutable Storage:** The underlying `VAULT_TOKEN` address is immutable to save gas on every call.
+- **OpenZeppelin Integrated:** Built on top of battle-tested OpenZeppelin contracts.
 
-### Running Tests
+---
 
-To run all the tests in the project, execute the following command:
+## 🛠️ Tech Stack
 
-```shell
-npx hardhat test
-```
+- **Language:** Solidity `^0.8.28`
+- **Framework:** Hardhat
+- **Testing:** Chai & Ethers.js
+- **Network:** Sepolia Testnet
 
-You can also selectively run the Solidity or `mocha` tests:
+---
 
-```shell
-npx hardhat test solidity
-npx hardhat test mocha
-```
+## 🌐 Deployed Addresses (Sepolia)
 
-### Make a deployment to Sepolia
+| Contract | Address | Verification |
+|----------|---------|--------------|
+| **SingleVault** | `0x...MASUKIN_ADDRESS_VAULT_LU_DISINI...` | [View on Etherscan](https://sepolia.etherscan.io/address/ADDRESS_VAULT_LU_DISINI) |
+| **Underlying Asset** | `0x...MASUKIN_ADDRESS_TOKEN_LU_DISINI...` | [View on Etherscan](https://sepolia.etherscan.io/address/ADDRESS_TOKEN_LU_DISINI) |
 
-This project includes an example Ignition module to deploy the contract. You can deploy this module to a locally simulated chain or to Sepolia.
+> *Note: The Underlying Asset is a mock ERC20 token deployed for testing purposes.*
 
-To run the deployment to a local chain:
+---
 
-```shell
-npx hardhat ignition deploy ignition/modules/Counter.ts
-```
+## 💻 Local Development
 
-To run the deployment to Sepolia, you need an account with funds to send the transaction. The provided Hardhat configuration includes a Configuration Variable called `SEPOLIA_PRIVATE_KEY`, which you can use to set the private key of the account you want to use.
-
-You can set the `SEPOLIA_PRIVATE_KEY` variable using the `hardhat-keystore` plugin or by setting it as an environment variable.
-
-To set the `SEPOLIA_PRIVATE_KEY` config variable using `hardhat-keystore`:
-
-```shell
-npx hardhat keystore set SEPOLIA_PRIVATE_KEY
-```
-
-After setting the variable, you can run the deployment with the Sepolia network:
-
-```shell
-npx hardhat ignition deploy --network sepolia ignition/modules/Counter.ts
-```
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/USERNAME_LU/SingleVault-ERC4626.git](https://github.com/USERNAME_LU/SingleVault-ERC4626.git)
+cd SingleVault-ERC4626
