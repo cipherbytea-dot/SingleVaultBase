@@ -53,5 +53,5 @@ Implemented strict rounding logic to prevent dust attacks and inflation attacks 
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/cipherbytea-dot/SingleVaultBase.git](https://github.com/cipherbytea-dot/SingleVaultBase.git)
+git clone https://github.com/cipherbytea-dot/SingleVaultBase.git
 cd SingleVaultBase
