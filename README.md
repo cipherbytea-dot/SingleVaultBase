@@ -42,8 +42,8 @@ Implemented strict rounding logic to prevent dust attacks and inflation attacks 
 
 | Contract | Address | Verification |
 |----------|---------|--------------|
-| **SingleVault** | `0x543B29b7b909222ea1e4d7A1f9CFFF8c0028B6Df` | [View on Etherscan](https://sepolia.etherscan.io/address/ADDRESS_VAULT_LU_DISINI) |
-| **Underlying Asset** | `0x905D1e1e45421277069AE75725F0EBd549409fD6` | [View on Etherscan](https://sepolia.etherscan.io/address/ADDRESS_TOKEN_LU_DISINI) |
+| **SingleVault** | `0x543B29b7b909222ea1e4d7A1f9CFFF8c0028B6Df` | [View on Etherscan](https://sepolia.etherscan.io/address/0x543B29b7b909222ea1e4d7A1f9CFFF8c0028B6Df) |
+| **Underlying Asset** | `0x905D1e1e45421277069AE75725F0EBd549409fD6` | [View on Etherscan](https://sepolia.etherscan.io/address/0x905D1e1e45421277069AE75725F0EBd549409fD6) |
 
 > *Note: The Underlying Asset is a mock ERC20 token deployed for testing purposes.*
 
@@ -53,5 +53,5 @@ Implemented strict rounding logic to prevent dust attacks and inflation attacks 
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/mhmd_apip/SingleVault-ERC4626.git](https://github.com/USERNAME_LU/SingleVault-ERC4626.git)
+git clone [https://github.com/cipherbytea-dot/SingleVaultBase.git](https://github.com/cipherbytea-dot/SingleVaultBase.git)
 cd SingleVaultBase
